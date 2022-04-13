@@ -66,5 +66,7 @@ public class CourseModel implements Serializable {
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private Set<CourseUserModel> courseUsers;
 
-
+    public CourseUserModel convertToCourseUserModel(UUID userId){
+        return new CourseUserModel(null, userId, this);
+    }
 }
