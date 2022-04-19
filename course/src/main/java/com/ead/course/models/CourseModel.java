@@ -8,8 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -38,11 +36,11 @@ public class CourseModel implements Serializable {
     private String imageUrl;
 
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-DD'T'HH:mm:ss'Z'")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     private LocalDateTime creationData;
 
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-DD'T'HH:mm:ss'Z'")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     private LocalDateTime lastUpdateDate;
 
     @Enumerated(EnumType.STRING)
@@ -57,7 +55,8 @@ public class CourseModel implements Serializable {
     private UUID userInstructor;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)//define o relacimanento pela chave estrangeira. cascade = CascadeType.ALL, orphanRemoval = true delega para a JPA deletar os filhos
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+//define o relacimanento pela chave estrangeira. cascade = CascadeType.ALL, orphanRemoval = true delega para a JPA deletar os filhos
     @Fetch(FetchMode.SUBSELECT)//como fara o select
 //    @OnDelete(action = OnDeleteAction.CASCADE)//deletar em castata delega para o banco deletar
     private Set<ModuleModel> modules;
@@ -66,7 +65,7 @@ public class CourseModel implements Serializable {
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private Set<CourseUserModel> courseUsers;
 
-    public CourseUserModel convertToCourseUserModel(UUID userId){
+    public CourseUserModel convertToCourseUserModel(UUID userId) {
         return new CourseUserModel(null, userId, this);
     }
 }
