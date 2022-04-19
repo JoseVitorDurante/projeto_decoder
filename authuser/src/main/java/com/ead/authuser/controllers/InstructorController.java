@@ -18,7 +18,7 @@ import java.util.Optional;
 @Log4j2
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/instructors")
+@RequestMapping("/instructor")
 public class InstructorController {
 
     @Autowired

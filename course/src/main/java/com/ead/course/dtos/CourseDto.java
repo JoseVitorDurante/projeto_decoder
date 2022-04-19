@@ -14,13 +14,18 @@ public class CourseDto implements Serializable {
 
     @NotBlank
     private String name;
+
     @NotBlank
     private String description;
+
     private String imageUrl;
+
     @NotNull
     private CourseStatus courseStatus;
+
     @NotNull
     private UUID userInstructor;
+
     @NotNull
     private CourseLevel courseLevel;
 }
