@@ -40,7 +40,8 @@ public class CourseClient {
         String url = REQUEST_URI + utilsService.createUrl(userId, pageable);
 
         try {
-            ParameterizedTypeReference<ResponsePageDto<CourseDto>> responseType = new ParameterizedTypeReference<ResponsePageDto<CourseDto>>() {};
+            ParameterizedTypeReference<ResponsePageDto<CourseDto>> responseType = new ParameterizedTypeReference<ResponsePageDto<CourseDto>>() {
+            };
 
             ResponseEntity<ResponsePageDto<CourseDto>> result = restTemplate.exchange(url, HttpMethod.GET, null, responseType);
             searchResult = result.getBody().getContent();
@@ -49,5 +50,10 @@ public class CourseClient {
         }
 
         return new PageImpl<>(searchResult);
+    }
+
+    public void deleteUserInCourse(UUID userId) {
+        String url = REQUEST_URI + "/courses/users/" + userId;
+        restTemplate.exchange(url, HttpMethod.DELETE, null, String.class);
     }
 }
