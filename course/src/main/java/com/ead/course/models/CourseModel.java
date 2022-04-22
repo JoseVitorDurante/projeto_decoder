@@ -60,12 +60,4 @@ public class CourseModel implements Serializable {
     @Fetch(FetchMode.SUBSELECT)//como fara o select
 //    @OnDelete(action = OnDeleteAction.CASCADE)//deletar em castata delega para o banco deletar
     private Set<ModuleModel> modules;
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-    private Set<CourseUserModel> courseUsers;
-
-    public CourseUserModel convertToCourseUserModel(UUID userId) {
-        return new CourseUserModel(null, userId, this);
-    }
 }
