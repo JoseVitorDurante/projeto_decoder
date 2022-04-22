@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public interface UserService {
@@ -15,4 +16,5 @@ public interface UserService {
 
     void delete(UUID userId);
 
+    Optional<UserModel> findById(UUID userId);
 }
