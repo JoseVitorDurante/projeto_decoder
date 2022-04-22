@@ -1,0 +1,916 @@
+{
+  "info": {
+    "_postman_id": "a404c8f5-8920-4c97-9eae-57e1fb7706ff",
+    "name": "projeto-decoder",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "ead-auth-user",
+      "item": [
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "sing up",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"username\": \"vaiiii\",\r\n    \"email\": \"vai@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"fullName\": \"vaiii\",\r\n    \"phoneNumber\": \"11987562545\",\r\n    \"cpf\": \"48180364803\"\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/auth/signup",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "auth",
+                    "signup"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "teste logger",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/auth/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "auth",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "user",
+          "item": [
+            {
+              "name": "get all users",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "",
+                    "value": "",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/users?sort=creationDate,desc",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0",
+                      "disabled": true
+                    },
+                    {
+                      "key": "sort",
+                      "value": "creationDate,desc"
+                    },
+                    {
+                      "key": "size",
+                      "value": "2",
+                      "disabled": true
+                    },
+                    {
+                      "key": "userType",
+                      "value": "INSTRUCTOR",
+                      "disabled": true
+                    },
+                    {
+                      "key": "email",
+                      "value": "maria",
+                      "disabled": true
+                    },
+                    {
+                      "key": "courseId",
+                      "value": "6c36c1bb-d784-454d-8fec-5939fa54ee45",
+                      "description": "usuarios que estão nesse curso",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get one user",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/users/e50d3045-301b-4521-ab78-d00942f3c166",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "users",
+                    "e50d3045-301b-4521-ab78-d00942f3c166"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete user",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/users/14314b8e-2753-4019-bc4b-3765283bb207",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "users",
+                    "14314b8e-2753-4019-bc4b-3765283bb207"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update user",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"fullName\": \"Michelli Brito TESTE\",\r\n    \"phoneNumber\": \"11987562587\",\r\n    \"cpf\": \"48180364801\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/users/c23597d8-5d52-4d66-9ea5-f68b93387c45",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "users",
+                    "c23597d8-5d52-4d66-9ea5-f68b93387c45"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update password",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"password\": \"123\",\r\n    \"oldPassword\": \"123\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/users/c23597d8-5d52-4d66-9ea5-f68b93387c45/password",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "users",
+                    "c23597d8-5d52-4d66-9ea5-f68b93387c45",
+                    "password"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update image",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"imageUrl\" : \"nova Image\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/users/c23597d8-5d52-4d66-9ea5-f68b93387c45\\image",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "users",
+                    "c23597d8-5d52-4d66-9ea5-f68b93387c45",
+                    "image"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "user-couse",
+          "item": [
+            {
+              "name": "get all courses by user",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/users/ab89b427-9f26-489e-9ebd-746b2a2341e3/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "users",
+                    "ab89b427-9f26-489e-9ebd-746b2a2341e3",
+                    "courses"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "post user course subscription",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"courseId\":\"cb0c4703-27f0-44b4-8f35-50cbd714d7fd\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/users/a85cd4c0-aa7a-43ab-af9f-d966594a7116/courses/subscription",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "users",
+                    "a85cd4c0-aa7a-43ab-af9f-d966594a7116",
+                    "courses",
+                    "subscription"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "instructor",
+          "item": [
+            {
+              "name": "post instructor subscription",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"43df5346-3055-43c5-a589-e51b9ac5efd1\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-authuser/instructor/subscription",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-authuser",
+                    "instructor",
+                    "subscription"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ead-course",
+      "item": [
+        {
+          "name": "courses",
+          "item": [
+            {
+              "name": "get all courses",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses"
+                  ],
+                  "query": [
+                    {
+                      "key": "courseId",
+                      "value": "6c36c1bb-d784-454d-8fec-5939fa54ee45",
+                      "disabled": true
+                    },
+                    {
+                      "key": "name",
+                      "value": "Curso 1",
+                      "disabled": true
+                    },
+                    {
+                      "key": "courseStatus",
+                      "value": "INPROGRESS",
+                      "disabled": true
+                    },
+                    {
+                      "key": "courseLevel",
+                      "value": "BEGINNER",
+                      "disabled": true
+                    },
+                    {
+                      "key": "size",
+                      "value": "0",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "0",
+                      "disabled": true
+                    },
+                    {
+                      "key": "userId",
+                      "value": "b0aa05ce-d054-4d88-8f50-6afcb25b3536",
+                      "description": "cursos que possuem esse usuario",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get one course",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses/cb0c4703-27f0-44b4-8f35-50cbd714d7fd",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses",
+                    "cb0c4703-27f0-44b4-8f35-50cbd714d7fd"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "post course",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"name\": \" curso 1\",\r\n   \"description\": \" curso 1\",\r\n   \"userInstructor\": \"43df5346-3055-43c5-a589-e51b9ac5efd1\",\r\n   \"courseStatus\": \"CONCLUDED\",\r\n   \"courseLevel\": \"BEGINNER\" \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete course",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses/b7a6db48-d86e-4936-82f0-2c71add50a31",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses",
+                    "b7a6db48-d86e-4936-82f0-2c71add50a31"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update course",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"name\": \"Curso 1\",\r\n   \"description\": \"Aprenda Spring\",\r\n   \"userInstructor\": \"492df925-1b5b-4677-a264-67e76e25539b\",\r\n   \"courseStatus\": \"CONCLUDED\",\r\n   \"courseLevel\": \"BEGINNER\" \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses/6c36c1bb-d784-454d-8fec-5939fa54ee45",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses",
+                    "6c36c1bb-d784-454d-8fec-5939fa54ee45"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "module",
+          "item": [
+            {
+              "name": "post module",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"TITULO 2\",\r\n    \"description\": \"dsnnf fd ko gdfkm fd, fdk,mfd klfd\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses/6c36c1bb-d784-454d-8fec-5939fa54ee45/modules",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses",
+                    "6c36c1bb-d784-454d-8fec-5939fa54ee45",
+                    "modules"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete module",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses/6c36c1bb-d784-454d-8fec-5939fa54ee45/modules/4d16aea9-b56b-41c1-8069-2033b1282cf7",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses",
+                    "6c36c1bb-d784-454d-8fec-5939fa54ee45",
+                    "modules",
+                    "4d16aea9-b56b-41c1-8069-2033b1282cf7"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "put module",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Titilo atualizado\",\r\n    \"description\": \"update\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses/6c36c1bb-d784-454d-8fec-5939fa54ee45/modules/4d16aea9-b56b-41c1-8069-2033b1282cf7",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses",
+                    "6c36c1bb-d784-454d-8fec-5939fa54ee45",
+                    "modules",
+                    "4d16aea9-b56b-41c1-8069-2033b1282cf7"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all modules",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses/6c36c1bb-d784-454d-8fec-5939fa54ee45/modules",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses",
+                    "6c36c1bb-d784-454d-8fec-5939fa54ee45",
+                    "modules"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "Tit",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "0",
+                      "disabled": true
+                    },
+                    {
+                      "key": "size",
+                      "value": "1",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get one modules",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses/6c36c1bb-d784-454d-8fec-5939fa54ee45/modules/c7689323-10ba-4403-918d-4a5be31390db",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses",
+                    "6c36c1bb-d784-454d-8fec-5939fa54ee45",
+                    "modules",
+                    "c7689323-10ba-4403-918d-4a5be31390db"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "lesson",
+          "item": [
+            {
+              "name": "post lessons",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Lesson 1\",\r\n    \"description\": \"sdfs\",\r\n    \"videoUrl\": \"http:\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/modules/c7689323-10ba-4403-918d-4a5be31390db/lessons",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "modules",
+                    "c7689323-10ba-4403-918d-4a5be31390db",
+                    "lessons"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete lessons",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/modules/c7689323-10ba-4403-918d-4a5be31390db/lessons/4ac5439d-d07e-4ca3-a6cf-d417a3956680",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "modules",
+                    "c7689323-10ba-4403-918d-4a5be31390db",
+                    "lessons",
+                    "4ac5439d-d07e-4ca3-a6cf-d417a3956680"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "put lesson",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Lesson 1 atualized\",\r\n    \"description\": \"sdfs\",\r\n    \"videoUrl\": \"http:\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/modules/c7689323-10ba-4403-918d-4a5be31390db/lessons/f80c1ce6-f1d7-4554-a173-bd510260f6ae",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "modules",
+                    "c7689323-10ba-4403-918d-4a5be31390db",
+                    "lessons",
+                    "f80c1ce6-f1d7-4554-a173-bd510260f6ae"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all lessons",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/modules/c7689323-10ba-4403-918d-4a5be31390db/lessons?page=0&size=1&title=Le",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "modules",
+                    "c7689323-10ba-4403-918d-4a5be31390db",
+                    "lessons"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "1"
+                    },
+                    {
+                      "key": "title",
+                      "value": "Le"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get one lesson",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/modules/c7689323-10ba-4403-918d-4a5be31390db/lessons/f80c1ce6-f1d7-4554-a173-bd510260f6ae",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "modules",
+                    "c7689323-10ba-4403-918d-4a5be31390db",
+                    "lessons",
+                    "f80c1ce6-f1d7-4554-a173-bd510260f6ae"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "course-user",
+          "item": [
+            {
+              "name": "get alll users by course",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses/cb0c4703-27f0-44b4-8f35-50cbd714d7fd/users?page=0&size=2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses",
+                    "cb0c4703-27f0-44b4-8f35-50cbd714d7fd",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "post subscription user in course",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"ab89b427-9f26-489e-9ebd-746b2a2341e3\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/ead-course/courses/cb0c4703-27f0-44b4-8f35-50cbd714d7fd/users/subscription",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "ead-course",
+                    "courses",
+                    "cb0c4703-27f0-44b4-8f35-50cbd714d7fd",
+                    "users",
+                    "subscription"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
