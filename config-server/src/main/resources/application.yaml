@@ -8,13 +8,11 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/JoseVitorDurante/projeto_decoder/blob/estrutura-assincrona-broker-event-semana-5/ead-config-server-repo/application.yaml
-          default-label: estrutura-assincrona-broker-event-semana-5
-
+          uri: https://github.com/JoseVitorDurante/ead-config-server-repo
+          default-label: main
 eureka:
   client:
     serviceUrl:
       defaultZone: 'http://localhost:8761/eureka'
   instance:
     hostname: localhost
-
