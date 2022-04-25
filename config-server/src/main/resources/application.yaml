@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: ead-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/JoseVitorDurante/projeto_decoder/blob/estrutura-assincrona-broker-event-semana-5/ead-config-server-repo/application.yaml
+          default-label: estrutura-assincrona-broker-event-semana-5
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://localhost:8761/eureka'
+  instance:
+    hostname: localhost
+
