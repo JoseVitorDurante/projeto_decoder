@@ -6,6 +6,15 @@ server:
 spring:
   application:
     name: ead-authuser-service
+  #  configurações globais disponibilizadas pelo configServer na indisponibilidade dele ira pegar as configurações dessa classe por conta do "optional:"
+  #  caso não tenha o "optional:" ele não sobe priorizando o configServer para pegar as configurações
+  config:
+    import: 'optional:configserver:'
+  cloud:
+    config:
+      discovery:
+        service-id: ead-config-server
+
   datasource:
     url: jdbc:postgresql://localhost:5432/ead-authuser-v2
     username: postgres
