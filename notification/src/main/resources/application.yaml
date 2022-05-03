@@ -1,13 +1,13 @@
 server:
-  port: 8082
+  port: 8084
   servlet:
-    context-path: '/ead-course/'
+    context-path: '/ead-notification/'
 
 spring:
   application:
-    name: ead-course-service
-  #  configuraÃ§Ãµes globais disponibilizadas pelo configServer na indisponibilidade dele ira pegar as configuraÃ§Ãµes dessa classe por conta do "optional:"
-  #  caso nÃ£o tenha o "optional:" ele nÃ£o sobe priorizando o configServer para pegar as configuraÃ§Ãµes
+    name: ead-notification-service
+  #  configurações globais disponibilizadas pelo configServer na indisponibilidade dele ira pegar as configurações dessa classe por conta do "optional:"
+  #  caso não tenha o "optional:" ele não sobe priorizando o configServer para pegar as configurações
   config:
     import: 'optional:configserver:'
   cloud:
@@ -15,7 +15,7 @@ spring:
       discovery:
         service-id: ead-config-server
   datasource:
-    url: jdbc:postgresql://localhost:5432/ead-course-v2
+    url: jdbc:postgresql://localhost:5432/ead-notification-v2
     username: postgres
     password: root
   jpa:
@@ -38,20 +38,17 @@ logging:
     org.springframework.web: DEBUG
     org.hibernate: INFO
 
-ead:
-  api:
-    url:
-      authuser: 'http://ead-authuser-service/ead-authuser'
-  broker:
-    exchange:
-      userEventExchange: ead.userevent
-    queue:
-      userEventQueue:
-        name: ead.userevent.ms.course
-
 eureka:
   client:
     serviceUrl:
       defaultZone: 'http://localhost:8761/eureka'
   instance:
     hostname: localhost
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - health
