@@ -6,8 +6,8 @@ server:
 spring:
   application:
     name: ead-notification-service
-  #  configurações globais disponibilizadas pelo configServer na indisponibilidade dele ira pegar as configurações dessa classe por conta do "optional:"
-  #  caso não tenha o "optional:" ele não sobe priorizando o configServer para pegar as configurações
+  #  configuraÃ§Ãµes globais disponibilizadas pelo configServer na indisponibilidade dele ira pegar as configuraÃ§Ãµes dessa classe por conta do "optional:"
+  #  caso nÃ£o tenha o "optional:" ele nÃ£o sobe priorizando o configServer para pegar as configuraÃ§Ãµes
   config:
     import: 'optional:configserver:'
   cloud:
@@ -38,12 +38,15 @@ logging:
     org.springframework.web: DEBUG
     org.hibernate: INFO
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: 'http://localhost:8761/eureka'
-  instance:
-    hostname: localhost
+ead:
+  broker:
+    exchange:
+      notificationCommandExchange: ead.notificationcommand
+    queue:
+      notificationCommandQueue:
+        name: ead.notificationcommand.ms.notification
+    key:
+      notificationCommandKey: ms.notification
 
 management:
   endpoints:
@@ -52,3 +55,11 @@ management:
         include:
           - refresh
           - health
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://localhost:8761/eureka'
+  instance:
+    hostname: localhost
+
