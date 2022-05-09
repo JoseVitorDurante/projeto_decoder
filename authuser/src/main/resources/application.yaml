@@ -45,6 +45,10 @@ ead:
   broker:
     exchange:
       userEvent: ead.userevent
+  serviceRegistry:
+    username: admin
+    password: "admin"
+
 
 authuser:
   refreshscope:
@@ -54,7 +58,7 @@ authuser:
 eureka:
   client:
     serviceUrl:
-      defaultZone: 'http://localhost:8761/eureka'
+      defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka'
   instance:
     hostname: localhost
 

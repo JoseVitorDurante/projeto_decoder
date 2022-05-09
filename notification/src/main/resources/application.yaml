@@ -13,7 +13,7 @@ spring:
   cloud:
     config:
       discovery:
-        serviceId: ead-config-server
+        service-id: ead-config-server
   datasource:
     url: jdbc:postgresql://localhost:5432/ead-notification-v2
     username: postgres
@@ -27,9 +27,6 @@ spring:
     properties:
       hibernate:
         show_sql: true
-  output:
-    ansi:
-      enabled: Always
   rabbitmq:
     addresses: amqps://hhlrguke:JQ0VgShjMWwq2b-_3FOu7xvCg6S-gQ4d@shark.rmq.cloudamqp.com/hhlrguke
 
@@ -42,6 +39,9 @@ logging:
     org.hibernate: INFO
 
 ead:
+  serviceRegistry:
+    username: admin
+    password: "admin"
   broker:
     exchange:
       notificationCommandExchange: ead.notificationcommand
@@ -62,7 +62,7 @@ management:
 eureka:
   client:
     serviceUrl:
-      defaultZone: 'http://localhost:8761/eureka'
+      defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka'
   instance:
     hostname: localhost
 

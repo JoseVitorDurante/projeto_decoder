@@ -42,6 +42,9 @@ ead:
   api:
     url:
       authuser: 'http://ead-authuser-service/ead-authuser'
+  serviceRegistry:
+    username: admin
+    password: "admin"
   broker:
     exchange:
       userEventExchange: ead.userevent
@@ -64,6 +67,6 @@ management:
 eureka:
   client:
     serviceUrl:
-      defaultZone: 'http://localhost:8761/eureka'
+      defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka'
   instance:
     hostname: localhost
