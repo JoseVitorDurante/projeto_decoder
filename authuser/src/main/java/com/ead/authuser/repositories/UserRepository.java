@@ -18,4 +18,8 @@ public interface UserRepository extends JpaRepository<UserModel, UUID>, JpaSpeci
     //EntityGraph carrega tambem as coleções que estão como lazy na entidade
     @EntityGraph(attributePaths = "roles", type = EntityGraph.EntityGraphType.FETCH)
     Optional<UserModel> findByUsername(String username);
+
+    //EntityGraph carrega tambem as coleções que estão como lazy na entidade
+    @EntityGraph(attributePaths = "roles", type = EntityGraph.EntityGraphType.FETCH)
+    Optional<UserModel> findById(UUID userId);
 }
