@@ -1,0 +1,70 @@
+server:
+  port: 8084
+  servlet:
+    context-path: '/ead-notification/'
+
+spring:
+  application:
+    name: ead-notification-service-hexagonal
+  #  configurações globais disponibilizadas pelo configServer na indisponibilidade dele ira pegar as configurações dessa classe por conta do "optional:"
+  #  caso não tenha o "optional:" ele não sobe priorizando o configServer para pegar as configurações
+  config:
+    import: 'optional:configserver:'
+  cloud:
+    config:
+      discovery:
+        service-id: ead-config-server
+      username: admin
+      password: 'admin'
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ead-notification-v2
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      jdbc:
+        lob.non-contextual-creation: true
+    properties:
+      hibernate:
+        show_sql: true
+  rabbitmq:
+    addresses: amqps://hhlrguke:JQ0VgShjMWwq2b-_3FOu7xvCg6S-gQ4d@shark.rmq.cloudamqp.com/hhlrguke
+
+
+logging:
+  level:
+    com.ead: TRACE
+    root: INFO
+    org.springframework.web: DEBUG
+    org.hibernate: INFO
+
+ead:
+  serviceRegistry:
+    username: admin
+    password: "admin"
+  broker:
+    exchange:
+      notificationCommandExchange: ead.notificationcommand
+    queue:
+      notificationCommandQueue:
+        name: ead.notificationcommand.ms.notification
+    key:
+      notificationCommandKey: ms.notification
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - health
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka'
+  instance:
+    hostname: localhost
+
