@@ -30,7 +30,7 @@ spring:
       hibernate:
         show_sql: true
   rabbitmq:
-    addresses: amqps://hhlrguke:JQ0VgShjMWwq2b-_3FOu7xvCg6S-gQ4d@shark.rmq.cloudamqp.com/hhlrguke
+    addresses: amqps://orqtffoc:VQggfPlcLBohmrZAvR1vPoOc6tykf9HS@shark.rmq.cloudamqp.com/orqtffoc
 
 logging:
   level:
